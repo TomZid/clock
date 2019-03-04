@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     var portraitFont = UIFont()
     var landScapeFont = UIFont()
 
+    var previewValue: CGFloat = 0.1
+
+    var pointBegin: CGPoint = CGPoint.zero
+    var pointEnd: CGPoint = CGPoint.zero
+
     @IBOutlet weak var stackView: UIStackView!
 
     @IBOutlet weak var hourLabel: UILabel!
@@ -27,6 +32,8 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        previewValue = UIScreen.main.brightness
 
         portraitFont = self.hourLabel.font
         landScapeFont = {
@@ -111,13 +118,27 @@ class ViewController: UIViewController {
     }
 
     @IBAction func panAction(_ sender: UIPanGestureRecognizer) {
-//        let point = sender.translation(in: self.view)
-//        let total = min(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
+        let total = min(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
 
-        DispatchQueue.main.async {
-            UIScreen.main.brightness = 0.0//(total - point.y) / total
+        var interval: CGFloat
+
+        switch sender.state {
+        case .began:
+            pointBegin = sender.location(in: view)
+            pointEnd = sender.location(in: view)
+        case .changed, .ended:
+            pointEnd = sender.location(in: view)
+            previewValue = UIScreen.main.brightness
+        default:
+            let _ = 1
         }
-//        print("\(point.x), \(point.y)")
+
+        interval = pointBegin.y - pointEnd.y
+
+        NSLog("\(pointEnd.y) ========== \(pointBegin.y) ========== \(interval / total)")
+
+        UIScreen.main.brightness = interval / total + previewValue
+
     }
 }
 
