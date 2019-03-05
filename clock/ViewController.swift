@@ -18,6 +18,13 @@ class ViewController: UIViewController {
     var pointBegin: CGPoint = CGPoint.zero
     var pointEnd: CGPoint = CGPoint.zero
 
+    var progressView: ProgressView {
+        get {
+            let storyboard = UIStoryboard.init(name: "ProgressView", bundle: nil)
+            return storyboard.instantiateInitialViewController() as! ProgressView
+        }
+    }
+
     @IBOutlet weak var stackView: UIStackView!
 
     @IBOutlet weak var hourLabel: UILabel!
@@ -45,6 +52,8 @@ class ViewController: UIViewController {
             view.layer.cornerRadius = 8
             view.layer.masksToBounds = true
         }
+
+        self.progressView.hide()
 
         timerBegin()
     }
@@ -105,9 +114,8 @@ class ViewController: UIViewController {
             font = landScapeFont
 
         default:
-            stackView.spacing = 20
+            stackView.spacing = 70
             font = landScapeFont
-
         }
 
         hourLabel.font = font
@@ -124,9 +132,13 @@ class ViewController: UIViewController {
 
         switch sender.state {
         case .began:
+            self.progressView.show()
             pointBegin = sender.location(in: view)
             pointEnd = sender.location(in: view)
-        case .changed, .ended:
+        case .ended:
+            self.progressView.hide()
+            fallthrough
+        case .changed:
             pointEnd = sender.location(in: view)
             previewValue = UIScreen.main.brightness
         default:
@@ -135,10 +147,21 @@ class ViewController: UIViewController {
 
         interval = pointBegin.y - pointEnd.y
 
-        NSLog("\(pointEnd.y) ========== \(pointBegin.y) ========== \(interval / total)")
-
         UIScreen.main.brightness = interval / total + previewValue
 
+    }
+}
+
+class ProgressView: UIViewController {
+    func hide() {
+        UIView.animate(withDuration: 0.3) {
+            self.view.alpha = 0
+        }
+    }
+    func show() {
+        UIView.animate(withDuration: 0.3) {
+            self.view.alpha = 1
+        }
     }
 }
 
@@ -152,3 +175,5 @@ extension Then where Self: AnyObject {
 }
 
 extension NSObject: Then{}
+
+

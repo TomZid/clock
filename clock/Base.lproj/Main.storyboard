@@ -222,7 +222,7 @@
         <!--ProgressView-->
         <scene sceneID="ELT-55-zeC">
             <objects>
-                <viewControllerPlaceholder storyboardName="ProgressView" id="e4Z-6F-046" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="progressView" storyboardName="ProgressView" id="e4Z-6F-046" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RTP-ZD-kOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="290" y="685"/>
