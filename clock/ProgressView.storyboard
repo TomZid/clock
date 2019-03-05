@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AWF-Ee-gbN">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="cuI-FN-kha">
+            <objects>
+                <viewController storyboardIdentifier="progressView" id="AWF-Ee-gbN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u3w-op-fe4">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="otF-YU-IbL" customClass="CornerRadiusView" customModule="clock" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-dP-ZnT" customClass="CornerRadiusView" customModule="clock" customModuleProvider="target">
+                                        <rect key="frame" x="304" y="5" width="191" height="290"/>
+                                        <color key="backgroundColor" red="1" green="0.82352941180000006" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brightness" translatesAutoresizingMaskIntoConstraints="NO" id="PR4-51-uvs">
+                                        <rect key="frame" x="5" y="3" width="294" height="294"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="PR4-51-uvs" secondAttribute="height" multiplier="1:1" id="ocC-mI-IhK"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="PR4-51-uvs" secondAttribute="bottom" constant="3" id="2ar-DI-yfP"/>
+                                    <constraint firstItem="gn8-dP-ZnT" firstAttribute="leading" secondItem="PR4-51-uvs" secondAttribute="trailing" constant="5" id="4nT-n2-qZY"/>
+                                    <constraint firstItem="PR4-51-uvs" firstAttribute="top" secondItem="otF-YU-IbL" secondAttribute="top" constant="3" id="BVA-aw-cW8"/>
+                                    <constraint firstItem="PR4-51-uvs" firstAttribute="leading" secondItem="otF-YU-IbL" secondAttribute="leading" constant="5" id="DDZ-p1-nmt"/>
+                                    <constraint firstAttribute="trailing" secondItem="gn8-dP-ZnT" secondAttribute="trailing" constant="5" id="SRV-Gt-FCz"/>
+                                    <constraint firstAttribute="bottom" secondItem="gn8-dP-ZnT" secondAttribute="bottom" constant="5" id="r30-s5-IOk"/>
+                                    <constraint firstItem="gn8-dP-ZnT" firstAttribute="top" secondItem="otF-YU-IbL" secondAttribute="top" constant="5" id="wV2-lt-IMF"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="otF-YU-IbL" firstAttribute="leading" secondItem="gSo-u3-YKr" secondAttribute="leading" id="DYS-8C-93C"/>
+                            <constraint firstItem="gSo-u3-YKr" firstAttribute="bottom" secondItem="otF-YU-IbL" secondAttribute="bottom" id="Qsm-d9-SPk"/>
+                            <constraint firstItem="otF-YU-IbL" firstAttribute="top" secondItem="gSo-u3-YKr" secondAttribute="top" id="ZtY-ox-hMX"/>
+                            <constraint firstItem="gSo-u3-YKr" firstAttribute="trailing" secondItem="otF-YU-IbL" secondAttribute="trailing" id="rSJ-4c-cYh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gSo-u3-YKr"/>
+                    </view>
+                    <size key="freeformSize" width="500" height="300"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vcg-Be-8qG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="brightness" width="400" height="400"/>
+    </resources>
+</document>

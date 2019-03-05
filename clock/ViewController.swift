@@ -37,7 +37,7 @@ class ViewController: UIViewController {
 
         portraitFont = self.hourLabel.font
         landScapeFont = {
-            let font = UIFont.init(name: portraitFont.fontName, size: 100) ?? UIFont.systemFont(ofSize: 100)
+            let font = UIFont.init(name: portraitFont.fontName, size: 150) ?? UIFont.systemFont(ofSize: 150)
             return font
         }()
 
@@ -98,10 +98,10 @@ class ViewController: UIViewController {
             stackView.spacing = 20
             font = portraitFont
         case .landscapeLeft:
-            stackView.spacing = 100
+            stackView.spacing = 70
             font = landScapeFont
         case .landscapeRight:
-            stackView.spacing = 100
+            stackView.spacing = 70
             font = landScapeFont
 
         default:
@@ -152,14 +152,3 @@ extension Then where Self: AnyObject {
 }
 
 extension NSObject: Then{}
-
-protocol Flip {}
-
-extension Flip where Self: AnyObject {
-    func flip(block: (Self) -> Void) -> Self {
-        block(self)
-        return self
-    }
-}
-
-extension UIView: Flip {}
