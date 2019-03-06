@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Progress View-->
+        <!--View Controller-->
         <scene sceneID="cuI-FN-kha">
             <objects>
-                <viewController storyboardIdentifier="progressView" id="AWF-Ee-gbN" customClass="ProgressView" customModule="clock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="progressView" id="AWF-Ee-gbN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u3w-op-fe4">
                         <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

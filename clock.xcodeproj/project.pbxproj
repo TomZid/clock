@@ -15,6 +15,7 @@
 		F7B00B1D222E12DE0000E9EC /* ProgressView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B00B1C222E12DE0000E9EC /* ProgressView.storyboard */; };
 		F7B00B20222E39390000E9EC /* CornerDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B00B1F222E39390000E9EC /* CornerDesignable.swift */; };
 		F7B00B23222E405F0000E9EC /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B00B22222E405F0000E9EC /* View.swift */; };
+		F7B00B29222F8B8C0000E9EC /* ProgressDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B00B28222F8B8C0000E9EC /* ProgressDesignable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,11 @@
 		F7B00B1C222E12DE0000E9EC /* ProgressView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProgressView.storyboard; sourceTree = "<group>"; };
 		F7B00B1F222E39390000E9EC /* CornerDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerDesignable.swift; sourceTree = "<group>"; };
 		F7B00B22222E405F0000E9EC /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		F7B00B24222F773A0000E9EC /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Main.strings"; sourceTree = "<group>"; };
+		F7B00B25222F773A0000E9EC /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		F7B00B26222F774A0000E9EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		F7B00B27222F774A0000E9EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		F7B00B28222F8B8C0000E9EC /* ProgressDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDesignable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				F7B00B1F222E39390000E9EC /* CornerDesignable.swift */,
+				F7B00B28222F8B8C0000E9EC /* ProgressDesignable.swift */,
 			);
 			path = Designable;
 			sourceTree = "<group>";
@@ -162,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B00B23222E405F0000E9EC /* View.swift in Sources */,
+				F7B00B29222F8B8C0000E9EC /* ProgressDesignable.swift in Sources */,
 				F7B00B20222E39390000E9EC /* CornerDesignable.swift in Sources */,
 				F7B00B0A222CE4F90000E9EC /* ViewController.swift in Sources */,
 				F7B00B08222CE4F90000E9EC /* AppDelegate.swift in Sources */,
@@ -175,6 +183,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F7B00B0C222CE4F90000E9EC /* Base */,
+				F7B00B24222F773A0000E9EC /* en-GB */,
+				F7B00B26222F774A0000E9EC /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -183,6 +193,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F7B00B11222CE4FB0000E9EC /* Base */,
+				F7B00B25222F773A0000E9EC /* en-GB */,
+				F7B00B27222F774A0000E9EC /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -194,6 +206,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -255,6 +268,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -314,6 +328,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5GB6A3YCPS;
 				INFOPLIST_FILE = clock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -333,6 +348,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5GB6A3YCPS;
 				INFOPLIST_FILE = clock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

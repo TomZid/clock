@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol CornerDesignable: class {
+public protocol CornerDesignable {
     var cornerRadius: CGFloat { get set }
 }
 

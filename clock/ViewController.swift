@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     var portraitFont = UIFont()
     var landScapeFont = UIFont()
@@ -18,12 +18,7 @@ class ViewController: UIViewController {
     var pointBegin: CGPoint = CGPoint.zero
     var pointEnd: CGPoint = CGPoint.zero
 
-    var progressView: ProgressView {
-        get {
-            let storyboard = UIStoryboard.init(name: "ProgressView", bundle: nil)
-            return storyboard.instantiateInitialViewController() as! ProgressView
-        }
-    }
+    @IBOutlet weak var progressViewContainer: UIView!
 
     @IBOutlet weak var stackView: UIStackView!
 
@@ -36,7 +31,9 @@ class ViewController: UIViewController {
     @IBOutlet var tickLabel: [UILabel]!
     @IBOutlet var labelBackViews: [UIView]!
 
-    
+    @IBOutlet var longHoldGesture: UILongPressGestureRecognizer!
+    @IBOutlet var panGesture: UIPanGestureRecognizer!
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -53,12 +50,10 @@ class ViewController: UIViewController {
             view.layer.masksToBounds = true
         }
 
-        self.progressView.hide()
+        hideViewAnimate(in: progressViewContainer, ask: false)
 
         timerBegin()
     }
-
-
 
     func timerBegin() {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {_ in
@@ -125,6 +120,30 @@ class ViewController: UIViewController {
         return true
     }
 
+    func showViewAnimate(in view: UIView, ask animate: Bool) {
+        var time = 0.0
+        if animate {
+            time = 0.3
+        }else {
+            time = 0.0
+        }
+        UIView.animate(withDuration: time) {
+            view.alpha = 1
+        }
+    }
+
+    func hideViewAnimate(in view: UIView, ask animate: Bool) {
+        var time = 0.0
+        if animate {
+            time = 0.3
+        }else {
+            time = 0.0
+        }
+        UIView.animate(withDuration: time) {
+            view.alpha = 0
+        }
+    }
+
     @IBAction func panAction(_ sender: UIPanGestureRecognizer) {
         let total = min(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
 
@@ -132,11 +151,11 @@ class ViewController: UIViewController {
 
         switch sender.state {
         case .began:
-            self.progressView.show()
+            showViewAnimate(in: progressViewContainer, ask: true)
             pointBegin = sender.location(in: view)
             pointEnd = sender.location(in: view)
         case .ended:
-            self.progressView.hide()
+            hideViewAnimate(in: progressViewContainer, ask: true)
             fallthrough
         case .changed:
             pointEnd = sender.location(in: view)
@@ -150,19 +169,31 @@ class ViewController: UIViewController {
         UIScreen.main.brightness = interval / total + previewValue
 
     }
-}
 
-class ProgressView: UIViewController {
-    func hide() {
-        UIView.animate(withDuration: 0.3) {
-            self.view.alpha = 0
+    @IBAction func longTapAction(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            showViewAnimate(in: self.progressViewContainer, ask: true)
+
+        } else if sender.state == .ended {
+            hideViewAnimate(in: self.progressViewContainer, ask: true)
         }
     }
-    func show() {
-        UIView.animate(withDuration: 0.3) {
-            self.view.alpha = 1
+
+    // MARK: UIGestureRecognizerDelegate
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        // 滑动手势需要在长按手势触发后生效，否则滑动手势不触发
+        if gestureRecognizer == panGesture {
+            return longHoldGesture.state == .changed || longHoldGesture.state == .began
+        } else {
+            return true
         }
     }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        // 滑动手势与长安手势共同生效
+        return true
+    }
+
 }
 
 protocol Then {}
