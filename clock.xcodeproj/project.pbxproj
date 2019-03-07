@@ -16,6 +16,7 @@
 		F7B00B20222E39390000E9EC /* CornerDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B00B1F222E39390000E9EC /* CornerDesignable.swift */; };
 		F7B00B23222E405F0000E9EC /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B00B22222E405F0000E9EC /* View.swift */; };
 		F7B00B29222F8B8C0000E9EC /* ProgressDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B00B28222F8B8C0000E9EC /* ProgressDesignable.swift */; };
+		F7B00B2C2230E7EC0000E9EC /* BrightnessIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B00B2B2230E7EC0000E9EC /* BrightnessIndexView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F7B00B26222F774A0000E9EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		F7B00B27222F774A0000E9EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		F7B00B28222F8B8C0000E9EC /* ProgressDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDesignable.swift; sourceTree = "<group>"; };
+		F7B00B2B2230E7EC0000E9EC /* BrightnessIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessIndexView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				F7B00B22222E405F0000E9EC /* View.swift */,
+				F7B00B2B2230E7EC0000E9EC /* BrightnessIndexView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				F7B00B29222F8B8C0000E9EC /* ProgressDesignable.swift in Sources */,
 				F7B00B20222E39390000E9EC /* CornerDesignable.swift in Sources */,
 				F7B00B0A222CE4F90000E9EC /* ViewController.swift in Sources */,
+				F7B00B2C2230E7EC0000E9EC /* BrightnessIndexView.swift in Sources */,
 				F7B00B08222CE4F90000E9EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,6 +18,8 @@ open class CornerRadiusView: UIView, CornerDesignable {
 }
 
 @IBDesignable
-open class ProgressView: UIView, CornerRadiusView {
+open class ProgressView: UIView, CornerDesignable, Progress {
+    public var cornerRadius: CGFloat = 0.0
+
     
 }

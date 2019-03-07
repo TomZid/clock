@@ -52,43 +52,47 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
         hideViewAnimate(in: progressViewContainer, ask: false)
 
+        feedContentWithTime()
         timerBegin()
     }
 
     func timerBegin() {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {_ in
-            let calendar = Calendar.init(identifier: .gregorian)
+            self.feedContentWithTime()
+        }
+    }
 
-            var components = calendar.dateComponents([Calendar.Component.year, Calendar.Component.month, Calendar.Component.day, Calendar.Component.weekday, Calendar.Component.hour, Calendar.Component.minute, Calendar.Component.second], from: Date())
+    func feedContentWithTime() {
+        let calendar = Calendar.init(identifier: .gregorian)
 
-            self.hourLabel.text = String(components.hour!)
-            self.minutLabel.text = String(components.minute!)
-            self.secondLabel.text = String(format: "%02d", components.second!)
-            self.mounthDayLabel.text = String(format: "%02d", components.month!) + "/" + String(format: "%02d", components.day!)
-            self.weekLabel.text = {
-                var week: String
-                switch components.weekday! {
-                case 1:
-                    week = "星期日"
-                case 2:
-                    week = "星期一"
-                case 3:
-                    week = "星期二"
-                case 4:
-                    week = "星期三"
-                case 5:
-                    week = "星期四"
-                case 6:
-                    week = "星期五"
-                case 7:
-                    week = "星期六"
-                default :
-                    week = "星期一"
-                }
-                return week
-            }()
+        var components = calendar.dateComponents([Calendar.Component.year, Calendar.Component.month, Calendar.Component.day, Calendar.Component.weekday, Calendar.Component.hour, Calendar.Component.minute, Calendar.Component.second], from: Date())
 
+        self.hourLabel.text = String(components.hour!)
+        self.minutLabel.text = String(components.minute!)
+        self.secondLabel.text = String(format: "%02d", components.second!)
+        self.mounthDayLabel.text = String(format: "%02d", components.month!) + "/" + String(format: "%02d", components.day!)
+        self.weekLabel.text = {
+            var week: String
+            switch components.weekday! {
+            case 1:
+                week = "星期日"
+            case 2:
+                week = "星期一"
+            case 3:
+                week = "星期二"
+            case 4:
+                week = "星期三"
+            case 5:
+                week = "星期四"
+            case 6:
+                week = "星期五"
+            case 7:
+                week = "星期六"
+            default :
+                week = "星期一"
             }
+            return week
+        }()
     }
 
     override var shouldAutorotate: Bool {
@@ -97,15 +101,19 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         switch UIDevice.current.orientation {
         case .portraitUpsideDown:
             stackView.spacing = 20
+            stackView.axis = .vertical
             font = portraitFont
         case .portrait:
             stackView.spacing = 20
+            stackView.axis = .vertical
             font = portraitFont
         case .landscapeLeft:
             stackView.spacing = 70
+            stackView.axis = .horizontal
             font = landScapeFont
         case .landscapeRight:
             stackView.spacing = 70
+            stackView.axis = .horizontal
             font = landScapeFont
 
         default:
@@ -167,7 +175,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         interval = pointBegin.y - pointEnd.y
 
         UIScreen.main.brightness = interval / total + previewValue
-
+        previewValue
     }
 
     @IBAction func longTapAction(_ sender: UILongPressGestureRecognizer) {
@@ -178,6 +186,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             hideViewAnimate(in: self.progressViewContainer, ask: true)
         }
     }
+
+    // MARK:
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProgressView" {
+            
+        }
+    }
+
 
     // MARK: UIGestureRecognizerDelegate
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
