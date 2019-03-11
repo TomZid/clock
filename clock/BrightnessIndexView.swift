@@ -13,6 +13,7 @@ class BrightnessIndexView: UIViewController {
     @IBOutlet weak var progressView: ProgressView!
 
     func currentProgress(_ progress: CGFloat) {
-        self.progressView.currentValue = progress
+        progressView.currentValue = progress
     }
+
 }

@@ -18,8 +18,24 @@ open class CornerRadiusView: UIView, CornerDesignable {
 }
 
 @IBDesignable
-open class ProgressView: UIView, CornerDesignable, Progress {
-    public var cornerRadius: CGFloat = 0.0
+open class ProgressView: CornerRadiusView, Progress {
 
-    
+    @IBInspectable open var animated: Bool = true
+
+    @IBInspectable open var remainingColor: UIColor = UIColor.blue
+
+    @IBInspectable open var progressColor: UIColor = UIColor.yellow
+
+    @IBInspectable open var axis: Axis = Axis(rawValue: 1)!
+
+    @IBInspectable open var currentValue: CGFloat = CGFloat.nan {
+        didSet {
+            setCurrentValue(superview?.frame.size.height ?? self.frame.size.height)
+        }
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
 }

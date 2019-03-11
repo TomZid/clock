@@ -68,6 +68,7 @@
 		F7B00B06222CE4F90000E9EC /* clock */ = {
 			isa = PBXGroup;
 			children = (
+				F7B00B2B2230E7EC0000E9EC /* BrightnessIndexView.swift */,
 				F7B00B21222E402E0000E9EC /* Views */,
 				F7B00B1E222E39230000E9EC /* Designable */,
 				F7B00B07222CE4F90000E9EC /* AppDelegate.swift */,
@@ -94,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				F7B00B22222E405F0000E9EC /* View.swift */,
-				F7B00B2B2230E7EC0000E9EC /* BrightnessIndexView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,7 +328,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5GB6A3YCPS;
 				INFOPLIST_FILE = clock/Info.plist;
@@ -339,7 +339,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.niwodai.limahuicustom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = LMHCUSTOM_DISTRIBUTE;
+				PROVISIONING_PROFILE_SPECIFIER = LMHCUSTOM_DEV;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

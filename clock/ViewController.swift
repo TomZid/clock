@@ -34,6 +34,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var longHoldGesture: UILongPressGestureRecognizer!
     @IBOutlet var panGesture: UIPanGestureRecognizer!
 
+    var brightnessView: BrightnessIndexView?
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -175,7 +177,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         interval = pointBegin.y - pointEnd.y
 
         UIScreen.main.brightness = interval / total + previewValue
-        previewValue
+
+        brightnessView?.currentProgress(UIScreen.main.brightness)
     }
 
     @IBAction func longTapAction(_ sender: UILongPressGestureRecognizer) {
@@ -189,11 +192,13 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // MARK:
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ProgressView" {
-            
+        if segue.identifier == "BrightnessIndexView" {
+            guard let viewController = segue.destination as? BrightnessIndexView else {
+                return
+            }
+            brightnessView = viewController
         }
     }
-
 
     // MARK: UIGestureRecognizerDelegate
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
