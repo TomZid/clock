@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F71E0C35223777CF00961BEE /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71E0C34223777CF00961BEE /* Notification.storyboard */; };
+		F789EDDD2238B25000DD593C /* RotateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F789EDDC2238B25000DD593C /* RotateLabel.swift */; };
 		F7B00B08222CE4F90000E9EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B00B07222CE4F90000E9EC /* AppDelegate.swift */; };
 		F7B00B0A222CE4F90000E9EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B00B09222CE4F90000E9EC /* ViewController.swift */; };
 		F7B00B0D222CE4F90000E9EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B00B0B222CE4F90000E9EC /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F71E0C34223777CF00961BEE /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		F789EDDC2238B25000DD593C /* RotateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateLabel.swift; sourceTree = "<group>"; };
 		F7B00B04222CE4F90000E9EC /* clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B00B07222CE4F90000E9EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7B00B09222CE4F90000E9EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F71E0C332237779800961BEE /* prototype */ = {
+			isa = PBXGroup;
+			children = (
+				F7B00B22222E405F0000E9EC /* View.swift */,
+			);
+			path = prototype;
+			sourceTree = "<group>";
+		};
 		F7B00AFB222CE4F90000E9EC = {
 			isa = PBXGroup;
 			children = (
@@ -68,16 +80,17 @@
 		F7B00B06222CE4F90000E9EC /* clock */ = {
 			isa = PBXGroup;
 			children = (
-				F7B00B2B2230E7EC0000E9EC /* BrightnessIndexView.swift */,
 				F7B00B21222E402E0000E9EC /* Views */,
 				F7B00B1E222E39230000E9EC /* Designable */,
 				F7B00B07222CE4F90000E9EC /* AppDelegate.swift */,
 				F7B00B09222CE4F90000E9EC /* ViewController.swift */,
 				F7B00B0B222CE4F90000E9EC /* Main.storyboard */,
 				F7B00B1C222E12DE0000E9EC /* ProgressView.storyboard */,
+				F71E0C34223777CF00961BEE /* Notification.storyboard */,
 				F7B00B0E222CE4FB0000E9EC /* Assets.xcassets */,
 				F7B00B10222CE4FB0000E9EC /* LaunchScreen.storyboard */,
 				F7B00B13222CE4FB0000E9EC /* Info.plist */,
+				F789EDDC2238B25000DD593C /* RotateLabel.swift */,
 			);
 			path = clock;
 			sourceTree = "<group>";
@@ -94,7 +107,8 @@
 		F7B00B21222E402E0000E9EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F7B00B22222E405F0000E9EC /* View.swift */,
+				F71E0C332237779800961BEE /* prototype */,
+				F7B00B2B2230E7EC0000E9EC /* BrightnessIndexView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +175,7 @@
 				F7B00B0F222CE4FB0000E9EC /* Assets.xcassets in Resources */,
 				F7B00B1D222E12DE0000E9EC /* ProgressView.storyboard in Resources */,
 				F7B00B0D222CE4F90000E9EC /* Main.storyboard in Resources */,
+				F71E0C35223777CF00961BEE /* Notification.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +191,7 @@
 				F7B00B20222E39390000E9EC /* CornerDesignable.swift in Sources */,
 				F7B00B0A222CE4F90000E9EC /* ViewController.swift in Sources */,
 				F7B00B2C2230E7EC0000E9EC /* BrightnessIndexView.swift in Sources */,
+				F789EDDD2238B25000DD593C /* RotateLabel.swift in Sources */,
 				F7B00B08222CE4F90000E9EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

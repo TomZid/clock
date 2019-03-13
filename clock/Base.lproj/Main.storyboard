@@ -182,14 +182,26 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="this is a  Label haha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMv-Lt-ofu" customClass="RotateClass" customModule="clock" customModuleProvider="target">
+                                <rect key="frame" x="200" y="150" width="0.0" height="0.0"/>
+                                <color key="backgroundColor" red="1" green="0.82352941180000006" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.20392156859999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="this is a  Label haha"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="hMv-Lt-ofu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2HV-e3-FWe"/>
                             <constraint firstItem="Tws-mA-laM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="48z-3v-2T5"/>
                             <constraint firstItem="nUk-Qq-dL5" firstAttribute="leading" secondItem="Tws-mA-laM" secondAttribute="trailing" id="5vq-gq-6x7"/>
                             <constraint firstItem="eko-Il-UTW" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="5zR-HA-odF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nUk-Qq-dL5" secondAttribute="bottom" id="6Qg-9K-9Gf"/>
+                            <constraint firstItem="hMv-Lt-ofu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="89Q-ex-87c"/>
                             <constraint firstItem="div-ok-ddc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9ce-gA-eXQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nUk-Qq-dL5" secondAttribute="trailing" id="Io7-c3-y2n"/>
                             <constraint firstItem="5nz-P1-wk6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Ljf-EJ-A2B"/>
@@ -207,11 +219,14 @@
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="IE2-ms-p80" appends="YES" id="8Ap-9L-ghK"/>
                             <outletCollection property="gestureRecognizers" destination="8fW-QN-bFO" appends="YES" id="WN3-1i-hrN"/>
+                            <outletCollection property="gestureRecognizers" destination="H8n-xB-BmK" appends="YES" id="Arw-RH-90T"/>
                         </connections>
                     </view>
                     <connections>
                         <outlet property="hourLabel" destination="yOB-Qm-ybY" id="cds-ak-dEx"/>
+                        <outlet property="label" destination="hMv-Lt-ofu" id="9HU-xe-J7p"/>
                         <outlet property="longHoldGesture" destination="IE2-ms-p80" id="0m9-DS-y0L"/>
+                        <outlet property="menuPanGesture" destination="H8n-xB-BmK" id="VUT-qy-xdc"/>
                         <outlet property="minutLabel" destination="lQ5-6N-ll6" id="x0Q-nI-jS5"/>
                         <outlet property="mounthDayLabel" destination="MNl-kA-gBJ" id="WBB-9C-hqO"/>
                         <outlet property="panGesture" destination="8fW-QN-bFO" id="iKP-1Q-VaZ"/>
@@ -235,6 +250,11 @@
                     <connections>
                         <action selector="panAction:" destination="BYZ-38-t0r" id="BGC-QD-Mlo"/>
                         <outlet property="delegate" destination="BYZ-38-t0r" id="ETY-eZ-nqy"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="2" id="H8n-xB-BmK">
+                    <connections>
+                        <action selector="menupanGesture:" destination="BYZ-38-t0r" id="zSW-JY-5rY"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>

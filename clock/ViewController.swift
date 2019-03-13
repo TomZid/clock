@@ -33,9 +33,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet var longHoldGesture: UILongPressGestureRecognizer!
     @IBOutlet var panGesture: UIPanGestureRecognizer!
+    @IBOutlet var menuPanGesture: UIPanGestureRecognizer!
 
     var brightnessView: BrightnessIndexView?
 
+    @IBOutlet weak var label: RotateClass!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -181,6 +183,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         brightnessView?.currentProgress(UIScreen.main.brightness)
     }
 
+    @IBAction func menupanGesture(_ sender: UIPanGestureRecognizer) {
+        NSLog("123321")
+    }
+
     @IBAction func longTapAction(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
             showViewAnimate(in: self.progressViewContainer, ask: true)
@@ -205,6 +211,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         // 滑动手势需要在长按手势触发后生效，否则滑动手势不触发
         if gestureRecognizer == panGesture {
             return longHoldGesture.state == .changed || longHoldGesture.state == .began
+        } else if gestureRecognizer == menuPanGesture {
+            let velocity = menuPanGesture.velocity(in: view)
+            return abs(velocity.y) > abs(velocity.x)
         } else {
             return true
         }
@@ -212,7 +221,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         // 滑动手势与长安手势共同生效
-        return true
+            return true
     }
 
 }
